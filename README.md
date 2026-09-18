@@ -347,7 +347,7 @@ Andalusia-Dashboard/
 ├── Andalusia.pbix
 │   └── Complete Power BI report
 │
-├── Dataset/
+├── Data/
 │   ├── dim_bu.xlsx
 │   ├── dim_country.xlsx
 │   ├── dim_date.xlsx
