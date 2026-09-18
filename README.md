@@ -4,23 +4,19 @@
 
 **Andalusia Healthcare Performance** is an interactive **Power BI Business Intelligence solution** developed as a portfolio project based on an interview assessment from **Andalusia Group**.
 
-The project transforms raw healthcare business data into an executive-level analytical experience covering **Billing, Marketing, and CRM** domains. It combines data preparation, Galaxy Schema modeling, Power Query, DAX, and dashboard design to help decision-makers monitor performance, compare actual results against targets and baselines, and identify business trends.
+The project transforms healthcare business data into an executive-level analytical experience covering **Billing, Marketing, and CRM**. It combines data preparation, Galaxy Schema modeling, Power Query, DAX, Figma-based dashboard design, and interactive Power BI reporting.
 
 ---
 
 ## 🖼️ Dashboard Experience
 
-The repository contains the completed Power BI report:
+### High-Level Dashboard
 
-<p align="center">
+<p align="center"><img src="./Screenshots/High%20Level%20Dashboard.png" alt="Andalusia Healthcare Performance — High Level Dashboard" width="900"></p>
 
-[![Open Power BI Report](https://img.shields.io/badge/Power%20BI-Open%20Report-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](./3.pbix)
+### Data Model
 
-[![Dataset](https://img.shields.io/badge/Excel-Row%20Data-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white)](./Row%20Data.xlsx)
-
-</p>
-
-> The PBIX file contains the interactive dashboard, data model, Power Query transformations, DAX measures, and report design.
+<p align="center"><img src="./Screenshots/Model.png" alt="Andalusia Healthcare Performance — Galaxy Schema Data Model" width="900"></p>
 
 ---
 
@@ -33,53 +29,72 @@ The objective was to build a consolidated healthcare performance solution capabl
 - How does current performance compare with **Historical** values?
 - Which Business Units contribute to overall performance?
 - How does performance vary by Payment Type?
-- Where are the strongest and weakest performance areas?
-- How can multiple healthcare business domains be brought together into one analytical model?
+- How does healthcare performance change over time?
+- How can Billing, Marketing, and CRM data be integrated into one analytical model?
 
-The result is an executive-oriented BI experience designed to turn operational data into **clear performance indicators and actionable business context**.
+The result is an executive-oriented BI experience designed to turn operational data into **clear KPIs, comparisons, trends, and business context**.
 
 ---
 
-## 📊 Analytical Scope
+## 📊 Data at a Glance
 
-| Analytical Area | Purpose |
+The repository now contains a structured analytical dataset with **8 Excel tables**:
+
+| Type | Tables | Count |
+|---|---|---:|
+| 📐 Dimensions | Business Unit, Country, Date, Medical Department, Payment | **5** |
+| 📊 Facts | Billing, Marketing, Medical CRM | **3** |
+| 🗂️ Total analytical tables | Dimensions + Facts | **8** |
+
+### Analytical domains
+
+| Domain | Dataset |
 |---|---|
-| 🏥 Billing | Monitor healthcare financial and operational performance |
-| 📣 Marketing | Analyze business performance and growth indicators |
-| 👥 CRM | Integrate customer-related performance information |
-| 🎯 Target | Measure performance against planned objectives |
-| 📌 Baseline | Compare current results with baseline values |
-| 📚 Historical | Track performance against historical values |
-| 🏢 Business Unit | Compare performance across organizational units |
-| 💳 Payment Type | Analyze Cash and Credit performance |
+| 🏥 Billing | fact_billing.xlsx |
+| 📣 Marketing | fact_marketing.xlsx |
+| 👥 Medical CRM | fact_medical_crm.xlsx |
+
+### Shared dimensions
+
+- dim_bu.xlsx — Business Units
+- dim_country.xlsx — Countries
+- dim_date.xlsx — Date / time analysis
+- dim_medical_department.xlsx — Medical departments
+- dim_payment.xlsx — Payment types
+
+> **Data note:** The repository structure was verified directly from the current GitHub dataset. Exact row-level KPI totals are intentionally not hard-coded here until the binary Excel workbooks can be read reliably.
 
 ---
 
-## 🔎 Data Analysis & Key Insights
+## 🔎 Business Analysis
 
-### 1. Actual vs Target Performance
+### 1. Actual vs Target
 
-The dashboard enables users to compare **Actual performance against Target values**, making it possible to identify achievement levels and performance gaps.
+The dashboard compares actual performance with defined targets, allowing users to evaluate **achievement and performance gaps** rather than looking at absolute values alone.
 
 ### 2. Actual vs Baseline
 
-Baseline comparisons provide an additional reference point for understanding whether current results are progressing above or below the established benchmark.
+Baseline comparison provides a second benchmark for understanding whether performance is above or below the established reference point.
 
 ### 3. Historical Performance
 
-Historical values provide context for current performance and help users identify changes and growth over time.
+The dedicated date dimension enables performance to be analyzed over time and compared with historical values.
 
 ### 4. Business Unit Analysis
 
-Performance can be analyzed across **Business Units**, allowing users to move from executive-level KPIs into organizational-level comparisons.
+The Business Unit dimension allows users to move from executive KPIs into organizational-level performance analysis.
 
 ### 5. Payment Type Analysis
 
-The dashboard separates **Cash and Credit** payment behavior, providing another analytical dimension for understanding healthcare performance.
+Payment types provide an additional financial/business dimension, including the project's **Cash vs Credit** analysis.
 
-### 6. Integrated Healthcare View
+### 6. Medical Department Analysis
 
-Rather than treating Billing, Marketing, and CRM as isolated datasets, the solution brings them into a unified BI environment through shared dimensions and a Galaxy Schema.
+The medical department dimension enables healthcare performance to be investigated across different clinical/business areas.
+
+### 7. Cross-domain Analysis
+
+The three fact domains — **Billing, Marketing, and Medical CRM** — are brought together through shared dimensions, allowing consistent filtering and analysis across the model.
 
 ---
 
@@ -107,29 +122,29 @@ Business Performance Analysis
 
 ### Data Preparation
 
-**Microsoft Excel** was used during the initial data exploration and preparation stage.
+The source data was explored and prepared before being modeled in Power BI.
 
-The workflow included:
+The preparation workflow included:
 
 - Identifying missing values
-- Replacing missing values where appropriate
+- Reviewing data consistency
 - Reviewing potential outliers
-- Checking data consistency
-- Preparing the source data for BI analysis
+- Standardizing analytical fields
+- Preparing data for modeling
 
 ### Power Query
 
-Power Query was used to prepare the data inside Power BI through transformations such as:
+Power Query was used for:
 
 - Data type standardization
-- Column transformation
+- Data transformation
 - Data cleaning
 - Removing unnecessary fields
 - Preparing analytical tables
 
 ### DAX
 
-DAX measures were developed to support the analytical layer, including:
+DAX measures were developed for analytical KPIs including:
 
 - Actual
 - Target
@@ -144,41 +159,39 @@ DAX measures were developed to support the analytical layer, including:
 
 ## 🗂️ Data Model
 
-The project uses a **Galaxy Schema** to integrate multiple fact tables around shared analytical dimensions.
+The project uses a **Galaxy Schema**, with multiple fact tables connected through shared dimensions.
 
-### Business Domains
+### Model Structure
 
 ~~~
-                  ┌─────────────┐
-                  │   Billing   │
-                  └──────┬──────┘
-                         │
-                         │
-┌─────────────┐    ┌─────▼─────┐    ┌─────────────┐
-│  Marketing  │───►│   Shared  │◄───│     CRM     │
-└─────────────┘    │ Dimensions│    └─────────────┘
-                   └─────┬─────┘
-                         │
-                  ┌──────▼──────┐
-                  │ Power BI /  │
-                  │    DAX      │
-                  └─────────────┘
+                    ┌────────────────────┐
+                    │    dim_date        │
+                    └─────────┬──────────┘
+                              │
+┌──────────────┐     ┌────────▼─────────┐     ┌──────────────┐
+│   dim_bu     │────►│ Shared Dimensions│◄────│ dim_country  │
+└──────────────┘     └────────┬─────────┘     └──────────────┘
+                              │
+          ┌───────────────────┼───────────────────┐
+          │                   │                   │
+   ┌──────▼──────┐     ┌──────▼──────┐     ┌──────▼─────────┐
+   │fact_billing │     │fact_marketing│    │fact_medical_crm│
+   └─────────────┘     └─────────────┘     └────────────────┘
 ~~~
 
-Shared analytical dimensions include:
+Additional shared dimensions include:
 
-- Country
-- Business Unit
+- Medical Department
 - Payment Type
-- Month
 
-The Galaxy Schema provides a structured foundation for:
+This architecture supports:
 
 - Cross-domain analysis
 - Consistent filtering
+- Reusable dimensions
 - Scalability
 - Maintainability
-- Reusable analytical dimensions
+- Clear separation of analytical grain
 
 ---
 
@@ -197,22 +210,23 @@ The dashboard provides KPI-level visibility into:
 
 ### Interactive Analysis
 
-Users can interact with the report through:
+Users can analyze the report through:
 
 - Business Unit filtering
-- Payment Type filtering
 - Country filtering
-- Month-level analysis
-- Actual vs Target comparisons
-- Actual vs Baseline comparisons
-- Historical performance comparisons
+- Payment Type filtering
+- Medical Department filtering
+- Month/date analysis
+- Actual vs Target comparison
+- Actual vs Baseline comparison
+- Historical performance comparison
 - Interactive matrix analysis
 
 ---
 
 ## 🎨 Dashboard Design
 
-The dashboard was designed with an **executive BI perspective**, focusing on clarity, hierarchy, and efficient information consumption.
+The dashboard was designed from an **executive BI perspective**, focusing on information hierarchy and efficient decision support.
 
 The design process considered:
 
@@ -222,9 +236,9 @@ The design process considered:
 - Consistent layout
 - Interactive filtering
 - Business-oriented storytelling
-- Clear comparison between performance benchmarks
+- Clear benchmark comparisons
 
-The interface was first planned in **Figma** before being implemented in Power BI.
+**Figma** was used during the dashboard design stage before implementation in Power BI.
 
 ---
 
@@ -232,23 +246,23 @@ The interface was first planned in **Figma** before being implemented in Power B
 
 ### Multi-domain integration
 
-Combining Billing, Marketing, and CRM information required a structured analytical architecture rather than treating each source independently.
+Billing, Marketing, and Medical CRM have different analytical purposes. The Galaxy Schema provides a common structure for analyzing them through shared dimensions.
 
-### Benchmark comparison
+### Multiple performance benchmarks
 
-The report needed to distinguish between multiple performance references:
+The dashboard distinguishes between:
 
 **Actual → Target → Baseline → Historical**
 
-This allows users to understand not only the current result, but also the context around that result.
+This makes it possible to evaluate current performance from several business perspectives.
 
-### Galaxy Schema modeling
+### Time-based analysis
 
-The model was designed around shared dimensions so that users can navigate the different business domains through consistent filters.
+The dedicated date dimension supports period-based analysis and historical comparisons.
 
 ### Executive communication
 
-The challenge was not only calculating KPIs, but presenting them in a format where performance gaps, trends, and comparisons can be understood quickly.
+The challenge was not only to calculate KPIs, but to present them in a format where performance, gaps, and trends can be understood quickly.
 
 ---
 
@@ -256,10 +270,10 @@ The challenge was not only calculating KPIs, but presenting them in a format whe
 
 | Technology | Role |
 |---|---|
-| 📊 **Power BI Desktop** | Data modeling, DAX, visualization, and dashboard development |
+| 📊 **Power BI Desktop** | Data modeling, visualization, and dashboard development |
 | 🔄 **Power Query** | Data transformation and preparation |
-| 🧮 **DAX** | Measures, KPIs, achievement, and growth calculations |
-| 📗 **Microsoft Excel** | Source data exploration and preparation |
+| 🧮 **DAX** | Dynamic measures and KPI calculations |
+| 📗 **Microsoft Excel** | Source data and analytical tables |
 | 🎨 **Figma** | Dashboard UI/UX planning |
 | 🗂️ **Galaxy Schema** | Analytical data model architecture |
 
@@ -270,29 +284,37 @@ The challenge was not only calculating KPIs, but presenting them in a format whe
 ~~~
 Andalusia-Dashboard/
 │
-├── 3.pbix
-│   └── Power BI report
+├── Andalusia.pbix
+│   └── Complete Power BI report
 │
-├── Row Data.xlsx
-│   └── Source / row-level dataset
+├── Dataset/
+│   ├── dim_bu.xlsx
+│   ├── dim_country.xlsx
+│   ├── dim_date.xlsx
+│   ├── dim_medical_department.xlsx
+│   ├── dim_payment.xlsx
+│   ├── fact_billing.xlsx
+│   ├── fact_marketing.xlsx
+│   └── fact_medical_crm.xlsx
+│
+├── Screenshots/
+│   ├── High Level Dashboard.png
+│   └── Model.png
 │
 └── README.md
-    └── Project documentation
 ~~~
 
 ---
 
 ## 📚 Data Source
 
-The project is based on the data provided for an **Andalusia Group interview assessment**.
+The project is based on data provided for an **Andalusia Group interview assessment**.
 
-The source dataset is included in the repository as:
+The cleaned analytical tables are included in the repository under the **Dataset** folder.
 
-**[Row Data.xlsx](./Row%20Data.xlsx)**
+The Power BI report is included as:
 
-The Power BI report built from the dataset is included as:
-
-**[3.pbix](./3.pbix)**
+**[Andalusia.pbix](./Andalusia.pbix)**
 
 ---
 
@@ -302,7 +324,7 @@ This project demonstrates an end-to-end **Data Analyst / BI Developer** workflow
 
 **Data Preparation → Data Modeling → Power Query → DAX → Dashboard Design → Business Analysis**
 
-The project focuses on translating business requirements into an analytical solution that allows executives to monitor performance and investigate the context behind it.
+The project focuses on translating business requirements into an analytical solution that allows executives to monitor performance, compare benchmarks, investigate trends, and explore different business dimensions.
 
 ---
 
@@ -319,12 +341,13 @@ The project focuses on translating business requirements into an analytical solu
 
 ## 📌 Repository Files
 
-| File | Description |
+| File / Folder | Description |
 |---|---|
-| [3.pbix](./3.pbix) | Complete Power BI report |
-| [Row Data.xlsx](./Row%20Data.xlsx) | Source row-level dataset |
+| [Andalusia.pbix](./Andalusia.pbix) | Complete Power BI report |
+| [Dataset](./Dataset) | Structured analytical Excel tables |
+| [Screenshots](./Screenshots) | Dashboard and data-model screenshots |
 | [README.md](./README.md) | Project documentation |
 
 ---
 
-⭐ **Explore the repository to review the Power BI report, source dataset, analytical model, and dashboard implementation.**
+⭐ **Explore the repository to review the dashboard, data model, analytical tables, and complete Power BI implementation.**
