@@ -4,7 +4,7 @@
 
 **Andalusia Healthcare Performance** is an interactive **Power BI Business Intelligence solution** developed as a portfolio project based on an interview assessment from **Andalusia Group**.
 
-The project transforms healthcare business data into an executive-level analytical experience covering **Billing, Marketing, and CRM**. It combines data preparation, Galaxy Schema modeling, Power Query, DAX, Figma-based dashboard design, and interactive Power BI reporting.
+The project transforms healthcare business data into an executive-level analytical experience covering **Billing, Marketing, and Medical CRM**. It combines data preparation, Galaxy Schema modeling, Power Query, DAX, Figma-based dashboard design, and interactive Power BI reporting.
 
 ---
 
@@ -38,13 +38,34 @@ The result is an executive-oriented BI experience designed to turn operational d
 
 ## 📊 Data at a Glance
 
-The repository now contains a structured analytical dataset with **8 Excel tables**:
+The current repository contains **8 analytical Excel tables**:
 
 | Type | Tables | Count |
 |---|---|---:|
 | 📐 Dimensions | Business Unit, Country, Date, Medical Department, Payment | **5** |
 | 📊 Facts | Billing, Marketing, Medical CRM | **3** |
 | 🗂️ Total analytical tables | Dimensions + Facts | **8** |
+
+### Dataset scale
+
+| Dataset | Records | Main analytical purpose |
+|---|---:|---|
+| **fact_billing** | **146** | Revenue, volume, C/V, Actual vs Target/Baseline/Historical |
+| **fact_marketing** | **9** | Marketing revenue, volume, RPP and target performance |
+| **fact_medical_crm** | **9** | Medical CRM revenue, volume and CPV performance |
+| **Total fact records** | **164** | Combined analytical fact rows |
+
+### Dimension coverage
+
+| Dimension | Records |
+|---|---:|
+| Business Units | **3** |
+| Countries | **2** |
+| Dates | **3** |
+| Medical Departments | **10** |
+| Payment Types | **2** |
+
+The available date dimension covers **March–May 2025**.
 
 ### Analytical domains
 
@@ -62,39 +83,78 @@ The repository now contains a structured analytical dataset with **8 Excel table
 - dim_medical_department.xlsx — Medical departments
 - dim_payment.xlsx — Payment types
 
-> **Data note:** The repository structure was verified directly from the current GitHub dataset. Exact row-level KPI totals are intentionally not hard-coded here until the binary Excel workbooks can be read reliably.
-
 ---
 
 ## 🔎 Business Analysis
 
-### 1. Actual vs Target
+The following metrics were calculated directly from the current Excel datasets in the repository. Revenue values are presented in the dataset's recorded revenue units.
 
-The dashboard compares actual performance with defined targets, allowing users to evaluate **achievement and performance gaps** rather than looking at absolute values alone.
+### Executive Performance Snapshot
 
-### 2. Actual vs Baseline
+| Domain | Actual Revenue | Target Revenue | Achievement | vs Baseline |
+|---|---:|---:|---:|---:|
+| **Billing** | **575.19M** | **724.89M** | **79.35%** | **-18.56%** |
+| **Marketing** | **72.62M** | **150.68M** | **48.19%** | **-13.02%** |
+| **Medical CRM** | **74.95M** | **101.98M** | **73.49%** | **-20.40%** |
 
-Baseline comparison provides a second benchmark for understanding whether performance is above or below the established reference point.
+### Revenue Gaps
 
-### 3. Historical Performance
+- **Billing:** Actual revenue is approximately **149.69M below target**.
+- **Marketing:** Actual revenue is approximately **78.07M below target**.
+- **Medical CRM:** Actual revenue is approximately **27.03M below target**.
 
-The dedicated date dimension enables performance to be analyzed over time and compared with historical values.
+### Volume Performance
 
-### 4. Business Unit Analysis
+| Domain | Actual Volume | Target Volume | Achievement |
+|---|---:|---:|---:|
+| **Billing** | **174,824** | **243,620** | **71.76%** |
+| **Marketing** | **54,295** | **110,951.64** | **48.94%** |
+| **Medical CRM** | **39,604** | **57,635** | **68.72%** |
 
-The Business Unit dimension allows users to move from executive KPIs into organizational-level performance analysis.
+### Billing Analysis
 
-### 5. Payment Type Analysis
+Billing contains **146 fact rows** across the available business dimensions.
 
-Payment types provide an additional financial/business dimension, including the project's **Cash vs Credit** analysis.
+Key observations from the calculated data:
 
-### 6. Medical Department Analysis
+1. **Billing revenue achievement is 79.35%**, leaving a revenue gap of approximately **149.69M** versus target.
+2. Actual billing revenue is **18.56% below baseline revenue**.
+3. Billing volume reached **71.76% of target volume**, with an observed gap of **68,796** units.
+4. **AMH** generated the largest share of billing actual revenue at approximately **40.93%**, followed by **ASH at 32.67%** and **HJH at 26.40%**.
+5. Among the billing medical departments, **Inpatient** generated approximately **150.91M** in actual revenue, followed by **Outpatient at 144.25M** and **ICU at 115.07M**.
+6. Billing revenue was distributed primarily through **Credit**, which accounted for approximately **490.07M** of actual revenue, compared with **85.13M** through Cash.
 
-The medical department dimension enables healthcare performance to be investigated across different clinical/business areas.
+### Marketing Analysis
 
-### 7. Cross-domain Analysis
+Marketing contains **9 fact rows** and focuses on revenue, volume, RPP and target comparison.
 
-The three fact domains — **Billing, Marketing, and Medical CRM** — are brought together through shared dimensions, allowing consistent filtering and analysis across the model.
+- Actual marketing revenue reached **72.62M** against a target of **150.68M**, equivalent to **48.19% achievement**.
+- The revenue gap to target is approximately **78.07M**.
+- Actual marketing volume reached **48.94% of target volume**.
+- Actual marketing revenue was **13.02% below baseline revenue**.
+
+### Medical CRM Analysis
+
+Medical CRM contains **9 fact rows** and focuses on revenue, volume and CPV performance.
+
+- Actual CRM revenue reached **74.95M** against a target of **101.98M**, equivalent to **73.49% achievement**.
+- The revenue gap to target is approximately **27.03M**.
+- Actual CRM volume reached **68.72% of target volume**.
+- Actual CRM revenue was **20.40% below baseline revenue**.
+
+### Business Interpretation
+
+The dataset highlights several areas for management investigation:
+
+1. **Target attainment:** All three analytical domains are below their revenue targets in the current dataset.
+2. **Marketing performance gap:** Marketing shows the lowest revenue achievement at **48.19% of target**.
+3. **Billing scale:** Billing represents the largest revenue domain in the available data, with **575.19M actual revenue**.
+4. **Business Unit concentration:** AMH contributes approximately **40.93%** of billing actual revenue.
+5. **Payment mix:** Credit represents the majority of billing actual revenue in the recorded data.
+6. **Department concentration:** Inpatient, Outpatient and ICU are the largest billing revenue contributors among the medical departments shown.
+7. **Benchmark comparison:** Actual performance is below both target and baseline across the three fact domains, although the size of the gap differs by domain.
+
+> **Important:** These are descriptive observations from the current dataset. They indicate where performance gaps and concentration exist; they do not establish causal relationships.
 
 ---
 
