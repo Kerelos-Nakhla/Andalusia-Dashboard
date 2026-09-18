@@ -8,7 +8,7 @@ The project transforms healthcare business data into an executive-level analytic
 
 ---
 
-## 🖼️ Dashboard Experience
+## Dashboard Screenshots
 
 ### High-Level Dashboard
 
