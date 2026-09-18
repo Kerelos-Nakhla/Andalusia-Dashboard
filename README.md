@@ -12,11 +12,11 @@ The project transforms healthcare business data into an executive-level analytic
 
 ### High-Level Dashboard
 
-<p align="center"><img src="./Screenshots/High%20Level%20Dashboard.png" alt="Andalusia Healthcare Performance — High Level Dashboard" width="900"></p>
+<p align="center"><img src="./Dashboard%20Previews/High%20Level%20Dashboard.png" alt="Andalusia Healthcare Performance — High Level Dashboard" width="900"></p>
 
 ### Data Model
 
-<p align="center"><img src="./Screenshots/Model.png" alt="Andalusia Healthcare Performance — Galaxy Schema Data Model" width="900"></p>
+<p align="center"><img src="./Dashboard%20Previews/Model.png" alt="Andalusia Healthcare Performance — Galaxy Schema Data Model" width="900"></p>
 
 ---
 
