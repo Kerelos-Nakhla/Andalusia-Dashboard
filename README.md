@@ -27,6 +27,13 @@ The **Andalusia Healthcare Analytics Dashboard** is an enterprise hospital manag
 
 ---
 
+
+## Business Questions & Key Analytical Takeaways
+- **Target gap:** Actual revenue is approximately **$149.7M below the target budget**, meaning **20.65% of the target remains unrealized** at the dataset level.
+- **Baseline comparison:** Actual revenue is approximately **$131.1M below the baseline benchmark**, so current realization is below both the target and baseline reference points.
+- **Growth vs. target:** Despite **24.05% growth over the historical comparison**, realized revenue has not yet closed the gap to the current budget target. This separates growth performance from target attainment.
+- **Management focus:** The model is structured to investigate whether the remaining gap is driven by consultation volume, cost-per-visit (C/V), business unit, department, or other operational dimensions.
+
 ## Dashboard Visual Tour & Storytelling
 
 ### 1. High Level Executive Dashboard
