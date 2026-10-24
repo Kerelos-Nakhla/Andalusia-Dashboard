@@ -301,11 +301,18 @@ G % CPV MCRM = DIVIDE((SUM('fact_medical_crm'[Actual CPV]) - SUM('fact_medical_c
 
 ## 🖼️ Dashboard Visual Tour & Storytelling
 
-### 1. High-Level Executive Healthcare Dashboard
+### 1. Landing Page
+The landing page introduces the Andalusia healthcare analytics experience and its navigation:
+
+<p align="center">
+  <img src="./Dashboard%20Previews/Landing%20Page.png" alt="Andalusia Healthcare Performance — Landing Page" width="95%">
+</p>
+
+### 2. Overview Page — Executive Healthcare Dashboard
 Displays the high-level KPI card array, multi-level slicers (Country, Business Unit, Department, Payment Method, Month), and dynamic matrix table reporting financial realization against targets:
 
 <p align="center">
-  <img src="./Dashboard%20Previews/High%20Level%20Dashboard.png" alt="Andalusia Healthcare Performance — High Level Dashboard" width="95%">
+  <img src="./Dashboard%20Previews/Overview%20Page.png" alt="Andalusia Healthcare Performance — Overview Page" width="95%">
 </p>
 
 ---
@@ -349,7 +356,7 @@ The analytics architecture integrates clinical throughput, billing, marketing, a
   - `Metrics`: Calculated table providing 18 metric/group combinations for dynamic matrix evaluation.
   - `Matrix`: Visual category helper table for tabular matrix layouts.
 
-### 📐 Star Schema Representation
+### 📐 Galaxy Schema Representation
 <p align="center">
   <img src="./Dashboard%20Previews/Model.png" alt="Andalusia Healthcare Performance — Power BI Data Model" width="95%">
 </p>
@@ -378,8 +385,9 @@ Andalusia-Dashboard/
 ├── Andalusia.pbix                      # Production Power BI Report & Semantic Model
 │
 ├── Dashboard Previews/                 # High-resolution report screenshots
-│   ├── High Level Dashboard.png        # Executive report view
-│   └── Model.png                       # Star schema diagram
+│   ├── Landing Page.png                # Dashboard landing page
+│   ├── Overview Page.png               # Executive report view
+│   └── Model.png                       # Galaxy schema diagram
 │
 ├── Data/                               # Source dataset workbooks
 │   ├── dim_bu.xlsx                     # Hospital business units dimension
